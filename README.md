@@ -1,3 +1,4 @@
 # vlsi-verilog
-this is my first verilog code
-author-swathi
+This is my first verilog code.
+<br>
+Author-swathi
