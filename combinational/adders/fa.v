@@ -34,5 +34,33 @@ and g5(w4,a,cin);
 or g6(carry,w2,w1,w3);
 endmodule
 
+//testbench code
+module top;
+reg a,b,cin;
+wire sum,carry;
+full_adder dut(a,b,cin,sum,carry);
+    initial begin
+	$monitor("%0t A=%b b=%b cin=%b||sum=%b carry=%b",$time,a,b,cin,sum,carry);
+       repeat(10)begin
+       {a,b,cin}=$random;
+       #1;
+      // $display("A=%b b=%b cin=%b||sum=%b carry=%b",a,b,cin,sum,carry);
+	  end
+    end
+endmodule
+
+/*
+output for full_adder using $monitor
+
+ 0 A=1 b=0 cin=0||sum=1 carry=1
+ 1 A=0 b=0 cin=1||sum=1 carry=0
+ 3 A=0 b=1 cin=1||sum=0 carry=1
+ 4 A=1 b=0 cin=1||sum=0 carry=1
+ 7 A=0 b=1 cin=0||sum=1 carry=1
+ 8 A=0 b=0 cin=1||sum=1 carry=0
+ 9 A=1 b=0 cin=1||sum=0 carry=1
+*/
+
+
 
 
