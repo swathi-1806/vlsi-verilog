@@ -49,5 +49,62 @@ always@(posedge clk)begin
 end
 always@(next_state) state=next_state;
 endmodule
+
+
+//`include "moore1011_np.v"
+
+module top;
+	reg clk,rst,d_in;
+	wire pattern_detect;
+	integer count=0;
+
+	moore_nop dut(	.clk(clk),
+					.rst(rst),
+					.d_in(d_in),
+					.pattern_detect(pattern_detect));
+
+	initial begin
+		clk=0;
+		forever #2 clk=~clk;
+	end
+
+	initial begin
+		rst=1;
+		d_in=0;
+		repeat(2)@(posedge clk);
+		rst=0;
+		d_in=0;
+	#4	d_in=1;//give the delay according to the clk generation,because every posedge we are incidenting a new d_in value
+	#4	d_in=0;
+	#4	d_in=1;
+	#4	d_in=1;
+	#4	d_in=1;
+	#4	d_in=0;
+	#4	d_in=1;
+	#4	d_in=1;
+	#4	d_in=0;
+	#4	d_in=0;
+	#4	d_in=1;
+	#4	d_in=0;
+	#4	d_in=1;
+	#4	d_in=1;
+	#4	d_in=0;
+	#4	d_in=0;
+	#4	d_in=0;
+	#4	d_in=1;
+	#4	d_in=0;
+	#4	d_in=1;
+	#4	d_in=1;
+	 	#100;
+		$display("\t-->total number times pattern got detected=%0d",count);
+		// $display("-->%0d",d_in);
+		$finish();
+	end
+	always@(posedge pattern_detect) count=count+1;
+endmodule
+
+	
+
+
 				
 		
