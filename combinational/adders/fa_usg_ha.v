@@ -1,3 +1,4 @@
+//implementation of full_adder using half_adder
 module half_adder(a,b,sum,carry);
 input a,b;
 output sum,carry;
@@ -43,5 +44,6 @@ output
 # a=0 b=0 cin=1||sum=0 carry=0
 # a=1 b=0 cin=1||sum=1 carry=0
 */
+
 
 
