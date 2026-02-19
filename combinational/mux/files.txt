@@ -1,1 +1,2 @@
-
+multiplexer is a combinational circuit 
+multiple inputs and single output
