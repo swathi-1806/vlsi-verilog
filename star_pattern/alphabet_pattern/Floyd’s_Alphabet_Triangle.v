@@ -33,3 +33,30 @@ OUTPUT
  PQRSTU
 
 */
+
+/*
+module tb;
+integer i,j;
+reg[7:0]ch;
+  initial begin
+    ch="U";
+    for(i=1;i<=6;i=i+1)begin
+      for(j=1;j<=i;j=j+1)begin
+        $write("%c",ch);
+        ch=ch-1;
+      end
+       $write("\n");
+    end
+  end
+endmodule
+
+-------------------------
+ U
+ TS
+ RQP
+ ONML
+ KJIHG
+ FEDCBA
+ -------------------------
+
+*/
