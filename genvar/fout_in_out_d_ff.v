@@ -14,7 +14,7 @@ endmodule
 module four_d_ff(
 input clk,
 input [3:0] d,
-output [3:0]q
+output reg [3:0]q
 );
   
 genvar i;
