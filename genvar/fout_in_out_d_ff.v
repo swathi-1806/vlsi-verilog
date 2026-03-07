@@ -57,4 +57,12 @@ module tb;
       $finish;   // stops simulation
     end
 endmodule
+/*
+OUTPUT:
+# clk=1  d=0100  q=0100 
+# clk=1  d=0001  q=0001 
+# clk=1  d=1001  q=1001 
+# clk=1  d=0011  q=0011 
+# clk=1  d=1101  q=1101 
+*/
       
