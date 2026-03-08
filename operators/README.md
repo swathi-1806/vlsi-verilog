@@ -457,7 +457,8 @@ Nested concatenations and replication operator are possible:
      #10  $finish;
   end	
   endmodule
-
+```
+```
  |time|	 enable| data| out|
  |----|--------|-----|----|
  |	   |   0    |  0  | z  |
@@ -467,5 +468,6 @@ Nested concatenations and replication operator are possible:
  |  4 | 	 1    |  1  | 1  |
  |  5 | 	 1    |  0  | 0  |
  |  6 | 	 0    |  0  | z  |
+
 ```
  	 	
