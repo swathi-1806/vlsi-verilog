@@ -266,3 +266,206 @@ output
   4'b0001 ~^ 4'bx001 = x111
   4'b0001 ~^ 4'bz001 = x111
 ```
+---
+## Reduction Operators(unary operators)
+&
+and
+
+~&
+nand
+
+|
+or
+
+~|
+nor
+
+^
+xor
+
+^~ or ~^
+xnor
+
+* Reduction operators are unary.
+* They perform a bit-wise operation on a single operand to produce a single bit result.
+* Reduction unary NAND and NOR operators operate as AND and OR respectively, but with their outputs negated.
+* Unknown bits are treated as described before.
+  
+```
+   module reduction_operators();
+   
+   initial begin
+  
+     // Bit Wise AND reduction
+     $display (" &  4'b1001 = %b", (&  4'b1001));
+     $display (" &  4'bx111 = %b", (&  4'bx111));
+    $display (" &  4'bz111 = %b", (&  4'bz111));
+  
+     // Bit Wise NAND reduction
+     $display (" ~& 4'b1001 = %b", (~& 4'b1001));
+     $display (" ~& 4'bx001 = %b", (~& 4'bx001));
+     $display (" ~& 4'bz001 = %b", (~& 4'bz001));
+  
+     // Bit Wise OR reduction
+     $display (" |  4'b1001 = %b", (|  4'b1001));
+     $display (" |  4'bx000 = %b", (|  4'bx000));
+     $display (" |  4'bz000 = %b", (|  4'bz000));
+  
+     // Bit Wise NOR reduction
+     $display (" ~| 4'b1001 = %b", (~| 4'b1001));
+     $display (" ~| 4'bx001 = %b", (~| 4'bx001));
+     $display (" ~| 4'bz001 = %b", (~| 4'bz001));
+  
+     // Bit Wise XOR reduction
+     $display (" ^  4'b1001 = %b", (^  4'b1001));
+     $display (" ^  4'bx001 = %b", (^  4'bx001));
+     $display (" ^  4'bz001 = %b", (^  4'bz001));
+  
+     // Bit Wise XNOR
+     $display (" ~^ 4'b1001 = %b", (~^ 4'b1001));
+     $display (" ~^ 4'bx001 = %b", (~^ 4'bx001));
+     $display (" ~^ 4'bz001 = %b", (~^ 4'bz001));
+      #10  $finish;
+   end
+ endmodule
+```
+```
+output:
+  &  4'b1001 = 0
+  &  4'bx111 = x
+  &  4'bz111 = x
+  ~& 4'b1001 = 1
+  ~& 4'bx001 = 1
+  ~& 4'bz001 = 1
+  |  4'b1001 = 1
+  |  4'bx000 = x
+  |  4'bz000 = x
+  ~| 4'b1001 = 0
+  ~| 4'bx001 = 0
+  ~| 4'bz001 = 0
+  ^  4'b1001 = 0
+  ^  4'bx001 = x
+  ^  4'bz001 = x
+  ~^ 4'b1001 = 1
+  ~^ 4'bx001 = x
+  ~^ 4'bz001 = x
+```
+## shift operators
+
+<<
+left shift
+
+>>
+right shift
+
+* The left operand is shifted by the number of bit positions given by the right operand.
+* The vacated bit positions are filled with zeroes.
+
+```
+   module shift_operators();
+   
+   initial begin
+     // Left Shift
+     $display (" 4'b1001 << 1 = %b", (4'b1001 << 1));
+     $display (" 4'b10x1 << 1 = %b", (4'b10x1 << 1));
+     $display (" 4'b10z1 << 1 = %b", (4'b10z1 << 1));
+     // Right Shift
+     $display (" 4'b1001 >> 1 = %b", (4'b1001 >> 1));
+     $display (" 4'b10x1 >> 1 = %b", (4'b10x1 >> 1));
+     $display (" 4'b10z1 >> 1 = %b", (4'b10z1 >> 1));
+      #10  $finish;
+   end
+   endmodule
+```
+```
+output
+  4'b1001 << 1 = 0010
+  4'b10x1 << 1 = 0x10
+  4'b10z1 << 1 = 0z10
+  4'b1001 >> 1 = 0100
+  4'b10x1 >> 1 = 010x
+  4'b10z1 >> 1 = 010z
+```
+---
+## concatenation operator 
+Concatenations are expressed using the brace characters { and }, with commas separating the expressions within.
+Example: + {a, b[3:0], c, 4'b1001} // if a and c are 8-bit numbers, the results has 24 bits
+Unsized constant numbers are not allowed in concatenations.
+
+  module concatenation_operator();
+  
+  initial begin
+    // concatenation
+    $display (" {4'b1001,4'b10x1}  = %b", {4'b1001,4'b10x1});
+     #10  $finish;
+  end
+  
+ endmodule
+
+  {4'b1001,4'b10x1}  = 100110x1
+ 	 	
+s
+Replication operator is used to replicate a group of bits n times. Say you have a 4 bit variable and you want to replicate it 4 times to get a 16 bit variable: then we can use the replication operator.
+
+{n{m}}
+Replicate value m, n times
+
+Repetition multipliers (must be constants) can be used:
+{3{a}} // this is equivalent to {a, a, a}
+Nested concatenations and replication operator are possible:
+{b, {3{c, d}}} // this is equivalent to {b, c, d, c, d, c, d}
+ 	 	
+```
+   module replication_operator();
+   
+   initial begin
+     // replication
+     $display (" {4{4'b1001}}      = %b", {4{4'b1001}});
+     // replication and concatenation
+     $display (" {4{4'b1001,1'bz}} = %b", {4{4'b1001,1'bz}});
+      #10  $finish;
+   end
+  endmodule
+```
+  {4{4'b1001}       = 1001100110011001
+  {4{4'b1001,1'bz}  = 1001z1001z1001z1001z
+ 	 	
+
+* The conditional operator has the following C-like format:
+* cond_expr ? true_expr : false_expr
+* The true_expr or the false_expr is evaluated and used as a result depending on what cond_expr evaluates to (true or false).
+
+```
+   module conditional_operator();
+   
+   wire out;
+   reg enable,data;
+   // Tri state buffer
+   assign out = (enable) ? data : 1'bz;
+   
+   initial begin
+     $display ("time\t enable data out");
+    $monitor ("%g\t %b      %b    %b",$time,enable,data,out);
+    enable = 0;
+    data = 0;
+     #1  data = 1;
+     #1  data = 0;
+     #1  enable = 1;
+     #1  data = 1;
+     #1  data = 0;
+     #1  enable = 0;
+     #10  $finish;
+  end	
+  endmodule
+
+ |time|	 enable| data| out|
+ |----|--------|-----|----|
+ |	   |   0    |  0  | z  |
+ |  1 | 	 0    |  1  | z  |
+ |  2	|   0    |  0  | z  |
+ |  3 | 	 1    |  0  | 0  |
+ |  4 | 	 1    |  1  | 1  |
+ |  5 | 	 1    |  0  | 0  |
+ |  6 | 	 0    |  0  | z  |
+```
+ 	 	
