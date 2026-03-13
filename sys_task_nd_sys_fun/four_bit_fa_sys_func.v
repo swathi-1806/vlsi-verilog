@@ -30,3 +30,12 @@ module tb;
     end
 endmodule
 
+/*
+output:-
+# a=1001  b=0010  cin=0  sum=1011 carry=0
+# a=0100  b=0000  cin=1  sum=0101 carry=0
+# a=0000  b=0100  cin=1  sum=0101 carry=0
+# a=0011  b=0001  cin=1  sum=0101 carry=0
+# a=1000  b=0110  cin=1  sum=1111 carry=0
+*/
+
