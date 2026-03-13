@@ -22,3 +22,13 @@ module tb;
       add(p,q,r,s);
   end
 endmodule
+/*
+output:-
+
+# ADD:  p=50  q=30  r=80
+# SUB:  p=50  q=30  s=20
+# --------------------------
+# ADD:  p=100  q=150  r=250
+# SUB:  p=100  q=150  s=206(2's complement)
+# --------------------------
+*/
