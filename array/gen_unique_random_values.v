@@ -25,7 +25,9 @@ module tb;
 endmodule
 
 /*
+
 output:
+
 # arr[0]=72
 # arr[1]=91
 # arr[2]=85
