@@ -1,5 +1,6 @@
 
 `define VALUE 20
+
 module tb;
   integer arr[`VALUE-1:0];
   integer i;
