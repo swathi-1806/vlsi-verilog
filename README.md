@@ -11,6 +11,9 @@ This repository contains my Verilog practice codes for VLSI design.
     - comparators
     - code converters
 - sequential circuits
+    - clk generation
+    - frequency
+    - jitter
     - latches
     - flipflops
         - sr-ff
