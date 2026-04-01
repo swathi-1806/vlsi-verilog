@@ -34,51 +34,49 @@ sr_ff dut(clk,rst,s,r,q);
 			rst=0;
 		end
 		initial begin
-				#0;
+			@(negedge clk)begin
+				
 				s=0;
           		r=1;
-			//	#1;
+				#10;
           $display("%0t-->clk=%b rst=%b || s=%b  r=%b  q=%b",$time,clk,rst,s,r,q);
           
-          		#4;
+          	
           		s=0;
           		r=0;
-				#1;
+				#10;
           $display("%0t--> clk=%b rst=%b || s=%b  r=%b  q=%b",$time,clk,rst,s,r,q);
 			
-				#13;
+				
           		s=0;
           		r=1;
-				#2;
+				#10;
 				$display("%0t-->clk=%b rst=%b || s=%b  r=%b  q=%b",$time,clk,rst,s,r,q);
 			
-				#2;
+				
           		s=1;
           		r=0;
-			//	#1;
+				#10;
 				$display("%0t-->clk=%b rst=%b || s=%b  r=%b  q=%b",$time,clk,rst,s,r,q);
 
-          		#1;
+          		
           		s=1;
           		r=0;
-			//	#1;
+				#10;
 				$display("%0t-->clk=%b rst=%b || s=%b  r=%b  q=%b",$time,clk,rst,s,r,q);
 			
-				#14;
+				
           		s=0;
           		r=1;
-			//	#1;
+				#10;
 				$display("%0t-->clk=%b rst=%b || s=%b  r=%b  q=%b",$time,clk,rst,s,r,q);
 				
-				#14;
+				
           		s=1;
           		r=0;
-			//	#1;
+				#10;
 				$display("%0t-->clk=%b rst=%b || s=%b  r=%b  q=%b",$time,clk,rst,s,r,q);
-			
-
-	
-			
+			end	
 		end
 
 		initial begin
@@ -89,3 +87,13 @@ sr_ff dut(clk,rst,s,r,q);
 		end
 		
 endmodule
+
+/*
+# 20-->clk=1 rst=0 || s=0  r=1  q=0
+# 30-->clk=1 rst=0 || s=0  r=0  q=0
+# 40-->clk=1 rst=0 || s=0  r=1  q=0
+# 50-->clk=1 rst=0 || s=1  r=0  q=1
+# 60-->clk=1 rst=0 || s=1  r=0  q=1
+# 70-->clk=1 rst=0 || s=0  r=1  q=0
+# 80-->clk=1 rst=0 || s=1  r=0  q=1
+*/
