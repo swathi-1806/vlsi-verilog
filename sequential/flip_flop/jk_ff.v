@@ -31,11 +31,49 @@ jk_ff dut(clk,rst,j,k,q);
 		rst=0;
 	end
 	initial begin
-		repeat(10)begin
-			{j,k}=$random;
-			#1;
-			$display("clk=%b rst=%b || j=%b  k=%b  q=%b",clk,rst,j,k,q);
-		end
+		@(negedge clk)begin
+
+				j=0;
+          		k=1;
+				#10;
+         		$display("clk=%b rst=%b || j=%b  k=%b  q=%b",clk,rst,j,k,q);
+          
+          	
+          		j=0;
+          		k=0;
+				#10;
+          		$display("clk=%b rst=%b || j=%b  k=%b  q=%b",clk,rst,j,k,q);
+			
+				
+          		j=0;
+          		k=1;
+				#10;
+				$display("clk=%b rst=%b || j=%b  k=%b  q=%b",clk,rst,j,k,q);
+			
+				
+          		j=1;
+          		k=0;
+				#10;
+				$display("clk=%b rst=%b || j=%b  k=%b  q=%b",clk,rst,j,k,q);
+          		
+          		j=1;
+          		k=0;
+				#10;
+				$display("clk=%b rst=%b || j=%b  k=%b  q=%b",clk,rst,j,k,q);
+			
+				
+          		j=0;
+          		k=1;
+				#10;
+				$display("clk=%b rst=%b || j=%b  k=%b  q=%b",clk,rst,j,k,q);
+				
+				
+          		j=1;
+          		k=0;
+				#10;
+				$display("clk=%b rst=%b || j=%b  k=%b  q=%b",clk,rst,j,k,q);
+			end
+			
 	end
 	initial begin
 		#200;
