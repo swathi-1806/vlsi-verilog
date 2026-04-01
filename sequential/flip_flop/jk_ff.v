@@ -42,3 +42,5 @@ jk_ff dut(clk,rst,j,k,q);
 		$finish();
 	end
 endmodule
+
+
