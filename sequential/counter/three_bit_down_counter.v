@@ -22,7 +22,6 @@ up_counter_3_bit dut(clk,rst,a);
 		rst=1;
 		repeat(2)@(posedge clk)
 		rst=0;
-	
 	end
 	initial begin
 		#500;
