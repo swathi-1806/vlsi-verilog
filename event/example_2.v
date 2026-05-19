@@ -1,7 +1,8 @@
+
 module tb;
   event e1,e2,e3,e4,e5;
   initial begin
-    @e5
+    @e5;
     $display("telugu");
   end
   initial begin
