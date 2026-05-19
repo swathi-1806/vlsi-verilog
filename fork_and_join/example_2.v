@@ -1,3 +1,4 @@
+
 module top;
   initial begin
     $display("%0t-->entry1",$time);      //0ns
