@@ -10,6 +10,7 @@ This repository contains my Verilog practice codes for VLSI design.
     - decoder
     - comparators
     - code converters
+      
 - sequential circuits
     - clk generation
     - frequency
@@ -21,6 +22,7 @@ This repository contains my Verilog practice codes for VLSI design.
         - d-ff
         - t-ff
       - FSM
+      - counters
      
 ### tools used
 - model sim
