@@ -28,3 +28,16 @@ module tb;
   end
 
 endmodule
+
+/*
+# arr[0] = 143
+# arr[1] = 176
+# arr[2] = 137
+# arr[3] = 114
+# arr[4] = 187
+# arr[5] = 198
+# arr[6] = 191
+# arr[7] = 133
+# arr[8] = 191
+# arr[9] = 168
+*/
