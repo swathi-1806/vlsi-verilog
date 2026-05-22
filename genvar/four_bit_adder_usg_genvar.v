@@ -1,3 +1,4 @@
+//one bit full_adder
 module one_bit_fa(a,b,cin,sum,cout);
   input a,b,cin;
   output sum,cout;
@@ -5,6 +6,7 @@ module one_bit_fa(a,b,cin,sum,cout);
   assign cout=a&b|b&cin|cin&a;
 endmodule
 
+//four bit full_adder
 module four_bit_fa(a,b,cin,sum,cout);
   input [3:0]a,b;
   input cin;
