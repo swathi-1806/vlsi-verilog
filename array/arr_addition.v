@@ -1,4 +1,6 @@
+
 //declare 3 arrays and then randomize the two arrays of data and then add the 2 arrays of data and give it to third array
+
 module top;
   integer arrA[7:0];
   integer arrB[7:0];
