@@ -38,6 +38,7 @@ module tb;
 endmodule
 
 /*
+
 output:
 # idx = 0 value = 143
 # idx = 1 value = 176
@@ -50,4 +51,5 @@ output:
 # idx = 8 value = 191
 # idx = 9 value = 168
 # idx = 9 value = 168
+
 */
