@@ -6,7 +6,7 @@ module tb;
 
   initial begin
 
-    fh = $fopen("abc.txt", "w");
+    fh = $fopen("abc1.txt", "w");
 
     for (i = 0; i < 10; i = i + 1) begin
       arr[i] = $urandom_range(100,200);
