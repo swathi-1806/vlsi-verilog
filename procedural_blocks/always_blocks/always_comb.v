@@ -69,3 +69,11 @@ initial begin
 end
 
 endmodule
+
+/*
+# time=0 a=0 b=0 sel=0 y=0
+# time=10 a=0 b=1 sel=0 y=0
+# time=20 a=0 b=1 sel=1 y=1
+# time=30 a=1 b=0 sel=0 y=1
+# time=40 a=1 b=0 sel=1 y=0
+*/
