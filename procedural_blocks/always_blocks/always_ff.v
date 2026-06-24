@@ -57,3 +57,17 @@ initial begin
               $time, clk, rst, d, q);
 end
 endmodule
+/*
+# time=0 clk=0 rst=1 d=0 q=0
+# time=5 clk=1 rst=1 d=0 q=0
+# time=10 clk=0 rst=1 d=0 q=0
+# time=12 clk=0 rst=0 d=1 q=0
+# time=15 clk=1 rst=0 d=1 q=1
+# time=20 clk=0 rst=0 d=1 q=1
+# time=22 clk=0 rst=0 d=0 q=1
+# time=25 clk=1 rst=0 d=0 q=0
+# time=30 clk=0 rst=0 d=0 q=0
+# time=32 clk=0 rst=0 d=1 q=0
+# time=35 clk=1 rst=0 d=1 q=1
+# time=40 clk=0 rst=0 d=1 q=1
+*/
